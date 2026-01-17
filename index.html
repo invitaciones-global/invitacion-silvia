@@ -3,94 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cumpleaños Silvia 60</title>
+<title>Mamma Mia! Silvia 60</title>
+
+<!-- Tipografías -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #1e90ff, #ffffff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  /* PROPIEDADES CLAVE PARA LA IMAGEN EN MÓVILES */
+  background-image: url('img.jpg'), 
+                      /* Fondo 2: Limones (abajo) */
+                      url('IMG_5261.jpg'); /* Define la imagen */
+  background-repeat: no-repeat;
+  background-position: center center; /* Centra la imagen */
+  background-attachment: fixed; /* Mantiene la imagen fija mientras se hace scroll (opcional, pero mejora la sensación) */
+  background-size: cover; 
+  min-height: 200vh;/* Asegura que cubra todo el viewport sin importar el tamaño */
+  /* --- */
+  color: #1a3c72;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card {
+.invitation {
     background: white;
-    border-radius: 20px;
-    padding: 30px;
-    max-width: 380px;
+    max-width: 420px;
+    width: 100%;
+    border: 12px solid #1f5fbf;
+    border-image: repeating-linear-gradient(
+        45deg,
+        #1f5fbf,
+        #1f5fbf 10px,
+        #ffffff 10px,
+        #ffffff 20px
+    ) 20;
+    padding: 25px 20px 35px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
 }
 
+/* Flores superiores */
+.flowers {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    font-size: 26px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+}
+
+.countdown div {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.countdown span {
+  display: block;
+  font-size: 1.4rem;
+  color: #e04b8c;
+}
+
+/* Títulos */
 .title {
+    font-family: 'Playfair Display', serif;
+    color: #1f5fbf;
     font-size: 32px;
-    color: #0077cc;
-    font-weight: bold;
+    margin-top: 40px;
 }
 
 .subtitle {
-    font-size: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    color: #1f5fbf;
     margin: 10px 0;
 }
 
-.details {
-    font-size: 16px;
+.text {
+    font-size: 15px;
     margin: 15px 0;
+    line-height: 1.6;
 }
 
+/* Fecha */
+.date-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.day {
+    font-size: 48px;
+    font-weight: bold;
+    color: #1f5fbf;
+    margin-right: 15px;
+}
+
+.date-text {
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Botones */
 .button {
     display: block;
-    margin: 15px auto;
-    padding: 12px 20px;
-    background: #0077cc;
+    margin: 12px auto;
+    padding: 12px 22px;
+    background: #1f5fbf;
     color: white;
-    border-radius: 30px;
+    border-radius: 25px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    width: fit-content;
 }
 
 .button:hover {
-    background: #005fa3;
+    background: #174a94;
 }
 
-.footer {
-    margin-top: 10px;
-    font-size: 14px;
-    color: gray;
+#musicButton {
+  background: #e04b8c;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#musicButton:hover {
+  background: #c53d78;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="invitation">
 
-    <div class="title">🎶 Mamma Mia! 🎶</div>
-    <div class="subtitle">¡Silvia cumple 60!</div>
+    <div class="flowers">🌸🌸🌸🌸🌸</div>
 
-    <div class="details">
-        📅 <b>Lunes 29</b><br>
-        🎂 Celebramos sus 60 años<br>
-        🌊 Estilo griego – ¡Ven de azul o blanco!
+    <div class="title">MAMMA MIA!</div>
+    <div class="subtitle">A FESTA</div>
+
+    <div class="text">
+        Estás cordialmente invitado a una noche llena de alegría, música y diversión,
+        celebrando el cumpleaños de
     </div>
+
+    <div class="name">Silvia</div>
+
+    <div class="text">
+        ¡Ven preparado para cantar, bailar!
+    </div>
+
+    <div class="date-box">
+        <div class="day">23</div>
+        <div class="date-text">
+            <strong>Viernes</strong><br>
+            <strong>A partir de las 9:00pm</strong><br>
+            Cumpleaños 60
+        </div>
+    </div>
+
+    <div class="countdown">
+      <div><span id="days">00</span><small>Días</small></div>
+      <div><span id="hours">00</span><small>Horas</small></div>
+      <div><span id="minutes">00</span><small>Min</small></div>
+      <div><span id="seconds">00</span><small>Seg</small></div>
+    </div>
+
+    
 
     <a class="button" href="https://maps.app.goo.gl/d183ZiKyS96XPzUQ6?g_st=iwb" target="_blank">
         📍 Ver Ubicación
     </a>
 
-    <!-- Cambia el número si quieres que confirme contigo -->
-    <a class="button" href="https://wa.me/5210000000000?text=Hola,%20confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Silvia%20🎉" target="_blank">
+    <a class="button" href="https://wa.me/524432029059?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Silvia%20🎉" target="_blank">
         ✅ Confirmar Asistencia
     </a>
 
-    <div class="footer">
-        ¡Te esperamos para cantar y bailar! 💃🕺
-    </div>
+    <audio id="musicPlayer" src="abba.mp3" loop preload="auto"></audio>
+    <button id="musicButton" class="button music-btn">🎶 Reproducir Dancing Queen</button>
 
 </div>
+
+<!-- Música -->
+<iframe id="music"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/xFrGuyw1V8s?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay">
+</iframe>
+
+<script src="script.js"></script>
 
 </body>
 </html>
