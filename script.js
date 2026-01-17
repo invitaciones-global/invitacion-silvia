@@ -27,7 +27,7 @@ musicButton.addEventListener("click", () => {
 
 // === Contador regresivo (Mantener el resto de tu código JS) ===
 const countdown = () => {
-  const eventDate = new Date("2026-01-22T00:00:00").getTime();
+  const eventDate = new Date("2026-01-23T00:00:00").getTime();
   const now = new Date().getTime();
   const diff = eventDate - now;
 
