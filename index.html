@@ -1,1 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamma Mia! Silvia 60</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        :root {
+            --blue-mamma: #1f5fbf;
+            --pink-flowers: #e04b8c;
+            --cream-player: #fffce0;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 10px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            /* Fondo de azulejos para toda la página */
+            background-image: url('https://www.transparenttextures.com/patterns/az-subtle.png'); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor del marco de azulejos */
+        .tile-frame {
+            background: white;
+            padding: 15px; /* Grosor del borde de azulejos */
+            background-image: url('azulejo.png'); /* Imagen de azulejos */
+            background-size: 150px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* El arco blanco interior */
+        .invitation-inner {
+            background: white;
+            border-radius: 250px 250px 0 0; /* Crea el efecto de arco */
+            padding: 60px 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Flores superiores */
+        .flowers-top {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Tipografía */
+        .title-main {
+            font-family: 'Playfair Display', serif;
+            color: var(--blue-mamma);
+            font-size: 40px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .subtitle-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-mamma);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+
+        .subtitle-divider::before, .subtitle-divider::after {
+            content: "";
+            height: 1px;
+            width: 40px;
+            background: var(--blue-mamma);
+            margin: 0 10px;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+            margin: 20px 0;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--blue-mamma);
+            margin: 10px 0;
+        }
+
+        .ven {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--blue-mamma);
+            margin: 10px 0;
+        }
+
+        .sesenta {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            color: #87CEEB;
+            margin: 10px 0;
+        }
+
+        .faltan {
+            font-family: 'Playfair Display', serif;
+            font-size:40px;
+            color: var(--pink-flowers);
+            margin: 10px 0;
+        }
+
+        /* Sección Fecha Estilo Imagen */
+        .date-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .date-day {
+            font-size: 65px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--blue-mamma);
+            line-height: 1;
+        }
+
+        .date-vertical-line {
+            width: 2px;
+            height: 60px;
+            background-color: var(--blue-mamma);
+            margin: 0 20px;
+        }
+
+        .date-details {
+            text-align: left;
+            color: var(--blue-mamma);
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* Contador */
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .countdown div {
+            flex: 1;
+        }
+
+        .countdown span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--pink-flowers);
+        }
+
+        .countdown small {
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Botones */
+        .btn {
+            display: block;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .btn-blue { background: var(--blue-mamma); color: white; }
+        .btn-pink { background: var(--pink-flowers); color: white; border: none; width: 100%; cursor: pointer; }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* =========================================
+           NUEVOS ESTILOS PARA EL REPRODUCTOR TIPO TARJETA
+           ========================================= */
+        .player-card {
+            background-color: var(--cream-player);
+            border-radius: 25px;
+            padding: 20px 25px;
+            margin-top: 25px;
+            color: var(--blue-mamma);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .song-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Barra de progreso */
+        .progress-container {
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 4px;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .progress-bar {
+            background-color: var(--blue-mamma);
+            height: 100%;
+            border-radius: 5px;
+            width: 0%; /* Se actualiza con JS */
+            position: relative;
+            transition: width 0.1s linear;
+        }
+
+        /* El puntito al final de la barra */
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: -3px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--blue-mamma);
+            border-radius: 50%;
+        }
+
+        /* Controles (Iconos) */
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .control-icon {
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        
+        /* Iconos decorativos (no funcionales para 1 sola canción) */
+        .inactive-icon { opacity: 0.4; cursor: default; }
+
+        /* Botón central de Play grande */
+        .play-btn-main {
+            font-size: 35px;
+            color: var(--blue-mamma);
+            opacity: 1;
+        }
+        .play-btn-main:hover { transform: scale(1.1); }
+
+    </style>
+</head>
+<body>
+
+<div class="tile-frame">
+    <img src="flores.png" class="flowers-top" alt="flowers">
+
+    <div class="invitation-inner">
+        <div></div>
+        <h1 class="title-main">MAMMA MIA!</h1>
+        <div class="subtitle-divider">A FESTA</div>
+
+        <div class="ven">VEN A CELEBRAR EL CUMPLEAÑOS</div>
+
+        <div class="sesenta">60</div>
+        <div class="ven">DE</div>
+        <div class="name">Silvia</div>
+
+        <p class="intro-text">
+            Estás cordialmente invitado a una noche llena de alegría, música y diversión.
+        </p>
+
+        <p class="intro-text">
+            ¡Ven preparado para cantar y bailar!
+        </p>
+
+        <div class="player-card">
+            <div class="song-title">Dancing Queen - ABBA 🎶</div>
+
+        <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="player-controls">
+                <i class="fa-solid fa-shuffle control-icon inactive-icon"></i>
+                <i class="fa-solid fa-backward-step control-icon inactive-icon"></i>
+                
+                <i id="playPauseBtn" class="fa-solid fa-circle-play control-icon play-btn-main"></i>
+                
+                <i class="fa-solid fa-forward-step control-icon inactive-icon"></i>
+                <i class="fa-solid fa-repeat control-icon inactive-icon"></i>
+            </div>
+        </div>
+
+        <div class="date-section">
+            <div class="date-day">23</div>
+            <div class="date-vertical-line"></div>
+            <div class="date-details">
+                Viernes<br>
+                23 de Enero 2026<br>
+                A las 9:00 PM
+            </div>
+        </div>
+
+        <div class="faltan">Solo faltan...</div>
+
+        <div class="countdown">
+            <div><span id="days">00</span><small>Días</small></div>
+            <div><span id="hours">00</span><small>Horas</small></div>
+            <div><span id="minutes">00</span><small>Min</small></div>
+            <div><span id="seconds">00</span><small>Seg</small></div>
+        </div>
+
+        <a class="btn btn-blue" href="https://maps.app.goo.gl/d183ZiKyS96XPzUQ6?g_st=iwb" target="_blank">📍 VER UBICACIÓN</a>
+        <a class="btn btn-blue" href="https://wa.me/524432029059?text=Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Silvia%20🎉" target="_blank">✅ CONFIRMAR ASISTENCIA</a>
+
+        <audio id="musicPlayer" src="abba.mp3" loop></audio>
+    </div>
+</div>
+
+<script>
+    // Código de música corregido
+    const musicPlayer = document.getElementById("musicPlayer");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const progressContainer = document.getElementById("progressContainer");
+    const progressBar = document.getElementById("progressBar");
+
+    // Función para alternar Play/Pausa
+    playPauseBtn.addEventListener("click", () => {
+        if (musicPlayer.paused) {
+            musicPlayer.play();
+            // Cambia el icono de Play a Pausa
+            playPauseBtn.classList.remove("fa-circle-play");
+            playPauseBtn.classList.add("fa-circle-pause");
+        } else {
+            musicPlayer.pause();
+            // Cambia el icono de Pausa a Play
+            playPauseBtn.classList.remove("fa-circle-pause");
+            playPauseBtn.classList.add("fa-circle-play");
+        }
+    });
+
+    // Actualizar la barra de progreso mientras suena la música
+    musicPlayer.addEventListener("timeupdate", (e) => {
+        // Calcula el porcentaje reproducido
+        const { duration, currentTime } = e.srcElement;
+        const progressPercent = (currentTime / duration) * 100;
+        // Actualiza el ancho de la barra azul
+        progressBar.style.width = `${progressPercent}%`;
+    });
+
+    // Permitir hacer clic en la barra para adelantar/retroceder
+    progressContainer.addEventListener("click", (e) => {
+        const width = progressContainer.clientWidth; // Ancho total de la barra
+        const clickX = e.offsetX; // Dónde se hizo clic
+        const duration = musicPlayer.duration; // Duración total de la canción
+        
+        // Calcula el nuevo tiempo y se lo asigna al reproductor
+        musicPlayer.currentTime = (clickX / width) * duration;
+    });
+
+    // Contador
+    const countdown = () => {
+        const eventDate = new Date("2026-01-23T21:00:00-06:00").getTime();
+        const now = new Date().getTime();
+        const diff = eventDate - now;
+
+        if (diff > 0) {
+            document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").textContent = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+    };
+    setInterval(countdown, 1000);
+</script>
+
+</body>
+</html>
